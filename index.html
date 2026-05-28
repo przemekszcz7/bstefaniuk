@@ -1,13 +1,1041 @@
 <!doctype html>
-<html lang="en">
+<html lang="pl" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Barbara Stefaniuk Nieruchomości - Klasa i Prestiż</title>
+    <title>Barbara Stefaniuk Nieruchomości — Klasa, Prestiż i Bezpieczeństwo</title>
+    <!-- Google Fonts: Elegant headings & contemporary UI text pairing -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS v4 CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+              sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            },
+            colors: {
+              gold: {
+                500: '#C9A84C',
+                100: '#E2C97E',
+                700: '#A07830',
+              },
+              navy: {
+                950: '#0A1628',
+                900: '#0D1F3C',
+                800: '#1A3460',
+                705: '#2A4A7F',
+                600: '#3D5F9E',
+              },
+              cream: '#F8F7F4',
+              darktext: '#1A1A2E',
+              graytext: '#4A5568',
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+      /* Luxury interactive patterns and subtle visual gradients */
+      .luxury-grid {
+        background-image: 
+          radial-gradient(ellipse at 50% 50%, rgba(201, 168, 76, 0.05) 0%, transparent 80%),
+          linear-gradient(rgba(201, 168, 76, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(201, 168, 76, 0.03) 1px, transparent 1px);
+        background-size: 100% 100%, 48px 48px, 48px 48px;
+      }
+      .luxury-diagonal {
+        background-image: repeating-linear-gradient(45deg, rgba(201, 168, 76, 0.02) 0px, rgba(201, 168, 76, 0.02) 2px, transparent 2px, transparent 12px);
+      }
+      /* Custom fine typography settings */
+      h1, h2, h3, .font-serif {
+        letter-spacing: -0.01em;
+      }
+      /* Smooth transitions for high-end feel */
+      .transition-premium {
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+    </style>
   </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="./src/main.tsx"></script>
+  <body class="relative min-h-screen bg-white text-darktext antialiased selection:bg-gold-500 selection:text-navy-950 font-sans">
+
+    <!-- 1. NAVIGATION BAR -->
+    <nav id="navbar-sticky" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 border-b bg-navy-900 border-gold-500/10 py-5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        
+        <!-- Logo and custom brand typography -->
+        <a href="#home" class="flex items-center gap-3.5 group">
+          <!-- Monogram Logo "BS" inside Golden Ring -->
+          <div class="w-10 h-10 rounded-full border-2 border-gold-500 bg-navy-950 flex items-center justify-center transition-premium group-hover:bg-gold-500">
+            <span class="text-sm font-bold text-gold-500 group-hover:text-navy-950 tracking-wider font-serif">BS</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-serif text-lg font-semibold tracking-wide text-white group-hover:text-gold-100 transition-colors leading-tight">
+              Barbara Stefaniuk
+            </span>
+            <span class="font-sans text-[10px] uppercase tracking-widest text-gold-500 font-medium">
+              Nieruchomości
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Links -->
+        <div class="hidden md:flex items-center gap-10">
+          <a href="#home" class="text-xs font-semibold uppercase tracking-wider text-white/95 hover:text-gold-500 transition-colors">Strona główna</a>
+          <a href="#o-mnie" class="text-xs font-semibold uppercase tracking-wider text-white/95 hover:text-gold-500 transition-colors">O mnie</a>
+          <a href="#oferty" class="text-xs font-semibold uppercase tracking-wider text-white/95 hover:text-gold-500 transition-colors">Oferty</a>
+          <a href="#obszar-dzialania" class="text-xs font-semibold uppercase tracking-wider text-white/95 hover:text-gold-500 transition-colors">Obszar działania</a>
+          <a href="#kontakt" class="px-5 py-2.5 bg-transparent border border-gold-500 font-sans text-xs font-semibold uppercase tracking-wider text-gold-500 hover:bg-gold-500 hover:text-navy-950 transition-premium">Kontakt</a>
+        </div>
+
+        <!-- Hamburger Menu -->
+        <button id="mobile-menu-toggle" class="md:hidden p-2 text-white hover:text-gold-500 transition-colors" aria-label="Nawigacja">
+          <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Fullscreen Menu overlay -->
+    <div id="mobile-menu" class="fixed inset-y-0 right-0 w-full z-30 bg-navy-900 border-l border-gold-500/10 px-6 py-24 flex flex-col items-center justify-center gap-8 text-center translate-x-full transition-transform duration-500 ease-in-out md:hidden shadow-3xl">
+      <div class="absolute inset-0 luxury-diagonal pointer-events-none opacity-20"></div>
+      
+      <div class="relative z-10 flex flex-col items-center gap-6">
+        <div class="w-14 h-14 rounded-full border-2 border-gold-500 bg-navy-950 flex items-center justify-center font-serif mb-2">
+          <span class="text-lg font-bold text-gold-500">BS</span>
+        </div>
+        
+        <a href="#home" class="mobile-menu-link text-xl font-serif text-white hover:text-gold-500 transition-colors">Strona główna</a>
+        <span class="w-6 h-[1px] bg-gold-500/30"></span>
+        <a href="#o-mnie" class="mobile-menu-link text-xl font-serif text-white hover:text-gold-500 transition-colors">O mnie</a>
+        <span class="w-6 h-[1px] bg-gold-500/30"></span>
+        <a href="#oferty" class="mobile-menu-link text-xl font-serif text-white hover:text-gold-500 transition-colors">Oferty</a>
+        <span class="w-6 h-[1px] bg-gold-500/30"></span>
+        <a href="#obszar-dzialania" class="mobile-menu-link text-xl font-serif text-white hover:text-gold-500 transition-colors">Obszar działania</a>
+        <span class="w-6 h-[1px] bg-gold-500/30"></span>
+        <a href="#kontakt" class="mobile-menu-link w-52 py-3 border border-gold-500 text-gold-500 font-semibold uppercase text-xs tracking-widest hover:bg-gold-500 hover:text-navy-900 transition-colors">Kontakt</a>
+      </div>
+    </div>
+
+
+    <!-- 2. HERO SECTION -->
+    <section id="home" class="relative min-h-screen bg-navy-900 flex items-center justify-center pt-24 pb-12 overflow-hidden">
+      <!-- Luxury visual configurations -->
+      <div class="absolute inset-0 luxury-grid"></div>
+      <div class="absolute inset-0 luxury-diagonal opacity-30"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] bg-gold-500/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+      <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+        <!-- Visual Monogram circle badge with subtle sliding animation on entrance -->
+        <div class="w-16 h-16 rounded-full border-2 border-gold-500/80 bg-navy-950/90 flex items-center justify-center shadow-xl mb-6 font-serif">
+          <span class="text-base font-bold text-gold-500 tracking-wider">BS</span>
+        </div>
+
+        <!-- Decorative horizontal divide bar -->
+        <div class="w-12 h-[2px] bg-gold-500 mb-8"></div>
+
+        <!-- Headline strings as stated in guidelines -->
+        <h1 class="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-80px font-normal text-white leading-[1.1] mb-6 tracking-tight max-w-4xl">
+          Znajdź nieruchomość,<br>
+          <span class="italic font-light text-gold-100">która stanie się Twoim domem.</span>
+        </h1>
+
+        <!-- Subheading -->
+        <p class="font-sans text-sm sm:text-base md:text-xl text-white/70 font-light tracking-wide max-w-3xl mb-12 leading-relaxed">
+          Profesjonalna obsługa kupna, sprzedaży i inwestycji — z doświadczeniem i zaangażowaniem.
+        </p>
+
+        <!-- Dynamic Action triggers -->
+        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center w-full max-w-md">
+          <a href="#oferty" class="px-10 py-4 bg-gold-500 hover:bg-gold-700 text-navy-900 hover:text-white text-xs uppercase font-bold tracking-widest text-center transition-premium shadow-lg">
+            Zobacz oferty
+          </a>
+          <a href="#kontakt" class="px-10 py-4 bg-transparent border border-white/60 hover:border-gold-500 font-sans text-xs font-semibold uppercase tracking-widest text-white hover:text-gold-500 text-center transition-premium">
+            Skontaktuj się
+          </a>
+        </div>
+
+        <!-- Pulses scrolling anchor link -->
+        <a href="#facts-bar" class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 group cursor-pointer">
+          <span class="text-[10px] uppercase font-sans tracking-widest text-gold-500/80 group-hover:text-gold-500 transition-colors">Przewiń</span>
+          <div class="w-8 h-8 rounded-full border border-gold-500/40 flex items-center justify-center text-gold-500 animate-bounce">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
+        </a>
+      </div>
+    </section>
+
+
+    <!-- 3. PASEK ZAUFANIA (Facts Trust Strip) -->
+    <div id="facts-bar" class="bg-navy-950 border-y border-gold-500/15 py-6 flex items-center min-h-[80px]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-10 lg:gap-16">
+          <span class="text-white font-sans text-xs font-semibold uppercase tracking-[0.16em]">Profesjonalne doradztwo</span>
+          <div class="hidden md:block w-[1px] h-4 bg-gold-500/30"></div>
+          <span class="text-white font-sans text-xs font-semibold uppercase tracking-[0.16em]">Bezpieczne transakcje</span>
+          <div class="hidden md:block w-[1px] h-4 bg-gold-500/30"></div>
+          <span class="text-white font-sans text-xs font-semibold uppercase tracking-[0.16em]">Rynek pierwotny i wtórny</span>
+          <div class="hidden md:block w-[1px] h-4 bg-gold-500/30"></div>
+          <span class="text-white font-sans text-xs font-semibold uppercase tracking-[0.16em]">Indywidualne podejście</span>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- 4. OFERTY NIERUCHOMOŚCI -->
+    <section id="oferty" class="py-24 bg-white relative z-10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header aspect -->
+        <div class="text-center md:text-left max-w-3xl mb-16">
+          <span class="inline-block text-xs uppercase font-sans font-bold tracking-widest text-gold-500 mb-3">AKTUALNE OFERTY</span>
+          <h2 class="font-serif text-3xl sm:text-5xl font-medium text-navy-900 leading-tight mb-4">Wybrane nieruchomości</h2>
+          <div class="w-16 h-[1px] bg-gold-500 mb-4 md:mx-0 mx-auto"></div>
+          <p class="text-gray-500 font-sans font-light text-base leading-relaxed">
+            Sprawdź dostępne oferty — każda z nich może być Twoim kolejnym krokiem.
+          </p>
+        </div>
+
+        <!-- Filter controls -->
+        <div class="flex flex-wrap justify-center md:justify-start gap-3 mb-12 pb-4 border-b border-gray-100">
+          <button id="filter-all" onclick="filterOffers('wszystkie')" class="filter-btn px-6 py-2.5 font-sans font-semibold text-xs uppercase tracking-wider border text-navy-900 bg-gold-500 border-gold-500 transition-premium">
+            Wszystkie
+          </button>
+          <button id="filter-mieszkanie" onclick="filterOffers('mieszkanie')" class="filter-btn px-6 py-2.5 font-sans font-semibold text-xs uppercase tracking-wider border text-navy-900 border-navy-800/10 hover:border-gold-500 bg-white transition-premium">
+            Mieszkania
+          </button>
+          <button id="filter-dzialka" onclick="filterOffers('dzialka')" class="filter-btn px-6 py-2.5 font-sans font-semibold text-xs uppercase tracking-wider border text-navy-900 border-navy-800/10 hover:border-gold-500 bg-white transition-premium">
+            Działki inwestycyjne
+          </button>
+          <button id="filter-dom" onclick="filterOffers('dom')" class="filter-btn px-6 py-2.5 font-sans font-semibold text-xs uppercase tracking-wider border text-navy-100 border-navy-800/10 hover:border-gold-500 bg-white transition-premium">
+            Domy
+          </button>
+        </div>
+
+        <!-- Symmetrical Grid cards -->
+        <div id="offers-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Offer Card 1 (Mieszkanie) -->
+          <div data-category="mieszkanie" class="offer-card group relative flex flex-col h-full bg-white border border-gray-100 hover:border-gold-500 hover:shadow-2xl transition-all duration-500 overflow-hidden" style="box-shadow: 0 10px 30px -15px rgba(13, 31, 60, 0.05)">
+            <div class="relative w-full overflow-hidden aspect-[16/10] bg-navy-900">
+              <img src="https://i.ibb.co/zWR58Q5w/655956716-122100479780949442-4520250554536345060-n.jpg" alt="Mieszkanie Warszawa Chomiczówka" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" referrerPolicy="no-referrer">
+              <div class="absolute inset-0 bg-gradient-to-t from-navy-900/40 via-transparent to-transparent opacity-60"></div>
+              <div class="absolute top-4 left-4 z-10">
+                <span class="inline-block px-3 py-1 text-[10px] font-sans font-semibold tracking-wider text-navy-900 bg-gold-500 uppercase">NOWOŚĆ</span>
+              </div>
+            </div>
+            <div class="flex flex-col flex-grow p-6 md:p-8">
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="text-[11px] font-sans font-medium tracking-widest text-gold-500 uppercase">MIESZKANIE</span>
+                <span class="text-[11px] font-sans font-light tracking-wide text-gray-400">Nowa oferta</span>
+              </div>
+              <h3 class="font-serif text-lg md:text-xl font-semibold leading-snug text-navy-900 group-hover:text-gold-500 transition-colors duration-300 mb-3 line-clamp-2">
+                Mieszkanie 3-pokojowe po remoncie — Chomiczówka, Warszawa
+              </h3>
+              <div class="flex items-center gap-1.5 text-gray-500 text-xs mb-4">
+                <svg class="w-4.5 h-4.5 text-gold-500 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25s-7.5-4.108-7.5-11.25g3 3 0 1115 0z" />
+                </svg>
+                <span class="line-clamp-1 font-sans text-xs">Warszawa, Chomiczówka (woj. mazowieckie)</span>
+              </div>
+              <p class="text-gray-600 text-sm font-sans font-light leading-relaxed mb-6 line-clamp-3">
+                W pełni wyposażone mieszkanie po remoncie z nowoczesnymi instalacjami. Idealne dla rodziny lub jako inwestycja z potencjałem wynajmu 5 000 PLN/mies.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-8 mt-auto">
+                <span class="inline-block px-2.5 py-1 text-[11px] font-sans font-light text-navy-800 border border-navy-800/20 bg-navy-800/[0.02]">3 pokoje</span>
+                <span class="inline-block px-2.5 py-1 text-[11px] font-sans font-light text-navy-800 border border-navy-800/20 bg-navy-800/[0.02]">Po remoncie</span>
+                <span class="inline-block px-2.5 py-1 text-[11px] font-sans font-light text-navy-800 border border-navy-800/20 bg-navy-800/[0.02]">Metro Młociny</span>
+                <span class="inline-block px-2.5 py-1 text-[11px] font-sans font-light text-navy-800 border border-navy-800/20 bg-navy-800/[0.02]">Wyposażone</span>
+              </div>
+              <button onclick="openModal(0)" class="w-full text-center py-3 border border-gold-500 font-sans text-xs font-semibold uppercase tracking-wider text-navy-900 hover:text-white hover:bg-gold-500 transition-premium">
+                Zobacz szczegóły
+              </button>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full h-[2px] bg-gold-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+          </div>
+
+          <!-- Offer Card 2 (Działka) -->
+          <div data-category="dzialka" class="offer-card group relative flex flex-col h-full bg-white border border-gray-100 hover:border-gold-500 hover:shadow-2xl transition-all duration-500 overflow-hidden" style="box-shadow: 0 10px 30px -15px rgba(13, 31, 60, 0.05)">
+            <div class="relative w-full overflow-hidden aspect-[16/10] bg-navy-900">
+              <img src="https://i.ibb.co/Xx0wNFB6/656794178-122099652500949442-7744523306428760816-n.jpg" alt="Działka nad jeziorem Szczytno" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" referrerPolicy="no-referrer">
+              <div class="absolute inset-0 bg-gradient-to-t from-navy-900/40 via-transparent to-transparent opacity-60"></div>
+              <div class="absolute top-4 left-4 z-10">
+                <span class="inline-block px-3 py-1 text-[10px] font-sans font-semibold tracking-wider text-navy-900 bg-gold-500 uppercase">PREMIUM</span>
+              </div>
+            </div>
+            <div class="flex flex-col flex-grow p-6 md:p-8">
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="text-[11px] font-sans font-medium tracking-widest text-gold-500 uppercase">DZIAŁKA INWESTYCYJNA</span>
+                <span class="text-[11px] font-sans font-light tracking-wide text-gray-400">Oferta Premium</span>
+              </div>
+              <h3 class="font-serif text-lg md:text-xl font-semibold leading-snug text-navy-900 group-hover:text-gold-500 transition-colors duration-300 mb-3 line-clamp-2">
+                Teren inwestycyjny 7,12 ha nad jeziorem — Szczytno, Warmia i Mazury
+              </h3>
+              <div class="flex items-center gap-1.5 text-gray-500 text-xs mb-4">
+                <svg class="w-4.5 h-4.5 text-gold-500 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25s-7.5-4.108-7.5-11.25" />
+                </svg>
+                <span class="line-clamp-1 font-sans text-xs">Szczytno, woj. warmińsko-mazurskie</span>
+              </div>
+              <p class="text-gray-600 text-sm font-sans font-light leading-relaxed mb-6 line-clamp-3">
+                71 248 m² nad jeziorem Domowym Dużym. Bezpośrednia linia brzegowa, MPZP (U/UT/US), dostęp do mediów. Scenariusze: hotel, resort, domki inwestycyjne. 3 km do centrum.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-8 mt-auto">
+                <span class="inline-block px-2.5 py-1 text-[11px] font-sans font-light text-navy-800 border border-navy-800/20 bg-navy-800/[0.02]">7,12 ha</span>
+                <span class="inline-block px-2.5 py-1 text-[11px] font-sans font-light text-navy-800 border border-navy-800/20 bg-navy-800/[0.02]">Nad jeziorem</span>
+                <span class="inline-block px-2.5 py-1 text-[11px] font-sans font-light text-navy-800 border border-navy-800/20 bg-navy-800/[0.02]">MPZP</span>
+                <span class="inline-block px-2.5 py-1 text-[11px] font-sans font-light text-navy-800 border border-navy-800/20 bg-navy-800/[0.02]">Warmia i Mazury</span>
+                <span class="inline-block px-2.5 py-1 text-[11px] font-sans font-light text-navy-800 border border-navy-800/20 bg-navy-800/[0.02]">ROI</span>
+              </div>
+              <button onclick="openModal(1)" class="w-full text-center py-3 border border-gold-500 font-sans text-xs font-semibold uppercase tracking-wider text-navy-900 hover:text-white hover:bg-gold-500 transition-premium">
+                Zobacz szczegóły
+              </button>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full h-[2px] bg-gold-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+          </div>
+
+          <!-- Offer Card 3 (Dom) -->
+          <div data-category="dom" class="offer-card group relative flex flex-col h-full bg-white border border-gray-100 hover:border-gold-500 hover:shadow-2xl transition-all duration-500 overflow-hidden" style="box-shadow: 0 10px 30px -15px rgba(13, 31, 60, 0.05)">
+            <div class="relative w-full overflow-hidden aspect-[16/10] bg-navy-900">
+              <img src="https://i.ibb.co/G4G7jPgT/655802110-122099648582949442-7169247095601942994-n.jpg" alt="Dom z basenem Stasi Las" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" referrerPolicy="no-referrer">
+              <div class="absolute inset-0 bg-gradient-to-t from-navy-900/40 via-transparent to-transparent opacity-60"></div>
+              <div class="absolute top-4 left-4 z-10">
+                <span class="inline-block px-3 py-1 text-[10px] font-sans font-semibold tracking-wider text-navy-900 bg-gold-500 uppercase">POLECANE</span>
+              </div>
+            </div>
+            <div class="flex flex-col flex-grow p-6 md:p-8">
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="text-[11px] font-sans font-medium tracking-widest text-gold-500 uppercase">DOM</span>
+                <span class="text-[11px] font-sans font-light tracking-wide text-gray-400">Oferta Polecana</span>
+              </div>
+              <h3 class="font-serif text-lg md:text-xl font-semibold leading-snug text-navy-900 group-hover:text-gold-500 transition-colors duration-300 mb-3 line-clamp-2">
+                Dom wolnostojący 207 m² z basenem — Stasi Las, Zalew Zegrzyński
+              </h3>
+              <div class="flex items-center gap-1.5 text-gray-500 text-xs mb-4">
+                <svg class="w-4.5 h-4.5 text-gold-500 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25s-7.5-4.108-7.5-11.25" />
+                </svg>
+                <span class="line-clamp-1 font-sans text-xs">Stasi Las, gmina Serock (woj. mazowieckie)</span>
+              </div>
+              <p class="text-gray-600 text-sm font-sans font-light leading-relaxed mb-6 line-clamp-3">
+                Nowoczesny dom z 2017 roku — 5 pokoi, przestronny salon z wyjściem na taras, własny basen, ogród 800 m². Szybki dojazd do Warszawy.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-8 mt-auto">
+                <span class="inline-block px-2.5 py-1 text-[11px] font-sans font-light text-navy-800 border border-navy-800/20 bg-navy-800/[0.02]">207 m²</span>
+                <span class="inline-block px-2.5 py-1 text-[11px] font-sans font-light text-navy-800 border border-navy-800/20 bg-navy-800/[0.02]">5 pokoi</span>
+                <span class="inline-block px-2.5 py-1 text-[11px] font-sans font-light text-navy-800 border border-navy-800/20 bg-navy-800/[0.02]">Basen</span>
+                <span class="inline-block px-2.5 py-1 text-[11px] font-sans font-light text-navy-800 border border-navy-800/20 bg-navy-800/[0.02]">Ogród 800m²</span>
+                <span class="inline-block px-2.5 py-1 text-[11px] font-sans font-light text-navy-800 border border-navy-800/20 bg-navy-800/[0.02]">2017</span>
+              </div>
+              <button onclick="openModal(2)" class="w-full text-center py-3 border border-gold-500 font-sans text-xs font-semibold uppercase tracking-wider text-navy-900 hover:text-white hover:bg-gold-500 transition-premium">
+                Zobacz szczegóły
+              </button>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full h-[2px] bg-gold-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 5. O MNIE SECTION -->
+    <section id="o-mnie" class="py-24 bg-cream relative overflow-hidden border-y border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          <!-- LEFT Side Avatar & Dynamic Info Strip -->
+          <div class="lg:col-span-5 flex flex-col items-center">
+            <div class="relative mb-8 text-center">
+              <div class="absolute inset-0 rounded-full border border-gold-500/20 scale-110 animate-pulse pointer-events-none"></div>
+              
+              <!-- Initials placeholder strictly meeting golden design rules -->
+              <div class="w-[150px] h-[150px] sm:w-[180px] sm:h-[180px] rounded-full bg-navy-900 border-4 border-gold-500 flex items-center justify-center shadow-2xl relative z-10 selection:bg-transparent">
+                <span class="font-serif text-5xl sm:text-6xl font-bold text-gold-500 tracking-widest select-none">BS</span>
+              </div>
+            </div>
+
+            <!-- Accent golden dividers -->
+            <div class="w-16 h-[2.5px] bg-gold-500 mb-8"></div>
+
+            <!-- Mini stat cards -->
+            <div class="w-full grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div class="bg-white p-5 border border-gray-100 shadow-sm text-center transition-transform hover:-translate-y-1 block relative overflow-hidden">
+                <div class="text-xl sm:text-lg lg:text-xl font-serif font-bold text-gold-500 border-b border-gray-50 pb-2 mb-2 tracking-tight">12+ Lat</div>
+                <p class="text-xs font-bold font-sans text-navy-900 mb-1">Doświadczenia</p>
+                <p class="text-[10px] text-gray-500 leading-normal font-sans font-light">Setki udanych transakcji na rynku.</p>
+              </div>
+
+              <div class="bg-white p-5 border border-gray-100 shadow-sm text-center transition-transform hover:-translate-y-1 block relative overflow-hidden">
+                <div class="text-xl sm:text-lg lg:text-xl font-serif font-bold text-gold-500 border-b border-gray-50 pb-2 mb-2 tracking-tight">100%</div>
+                <p class="text-xs font-bold font-sans text-navy-900 mb-1">Bezpieczeństwa</p>
+                <p class="text-[10px] text-gray-500 leading-normal font-sans font-light">Pełna weryfikacja stanu prawnego.</p>
+              </div>
+
+              <div class="bg-white p-5 border border-gray-100 shadow-sm text-center transition-transform hover:-translate-y-1 block relative overflow-hidden">
+                <div class="text-xl sm:text-lg lg:text-xl font-serif font-bold text-gold-500 border-b border-gray-50 pb-2 mb-2 tracking-tight">Cała PL</div>
+                <p class="text-xs font-bold font-sans text-navy-900 mb-1">Ogólnopolski</p>
+                <p class="text-[10px] text-gray-500 leading-normal font-sans font-light">Zasięg ofert z całej Polski.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT Side descriptive block -->
+          <div class="lg:col-span-7">
+            <span class="inline-block text-xs uppercase font-sans font-bold tracking-widest text-gold-500 mb-3">O MNIE</span>
+            <div class="w-12 h-[1px] bg-gold-500 mb-5"></div>
+            
+            <h3 class="font-serif text-3xl sm:text-5xl font-normal text-navy-900 mb-6 leading-tight">
+              Barbara Stefaniuk —<br>
+              <span class="font-semibold text-gold-500">Twój zaufany agent nieruchomości.</span>
+            </h3>
+
+            <div class="space-y-6 text-gray-600 font-sans font-light text-sm sm:text-base leading-[1.9] mb-10">
+              <p>
+                Pomajając klientom w zakupie, sprzedaży i wynajmie nieruchomości na terenie całej Polski. Specjalizuję się w ofertach mieszkaniowych, domach jednorodzinnych oraz terenach inwestycyjnych.
+              </p>
+              <p>
+                Wierzę, że każda transakcja nieruchomościowa to ważna decyzja życiowa — dlatego podchodzę do każdego klienta indywidualnie, dbając o bezpieczeństwo i komfort na każdym etapie współpracy.
+              </p>
+              <p>
+                Znajomość rynku, rzetelność i pełne zaangażowanie — to fundamenty mojej pracy.
+              </p>
+            </div>
+
+            <!-- Profile interaction links -->
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="#oferty" class="px-8 py-3.5 bg-gold-500 hover:bg-gold-700 text-navy-900 hover:text-white font-sans text-xs font-bold uppercase tracking-widest transition-premium shadow-md text-center">
+                Aktualne oferty
+              </a>
+              <a href="#kontakt" class="px-8 py-3.5 bg-transparent border border-navy-800 text-navy-900 hover:bg-navy-900 hover:text-white font-sans text-xs font-semibold uppercase tracking-widest transition-premium text-center">
+                Napisz do mnie
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 6. OBSZAR DZIAŁANIA -->
+    <section id="obszar-dzialania" class="py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="inline-block text-xs uppercase font-sans font-bold tracking-widest text-gold-500 mb-3">OBSZAR DZIAŁANIA</span>
+          <h2 class="font-serif text-3xl sm:text-5xl font-medium text-navy-900 mb-4 tracking-tight leading-tight">Działam na terenie całej Polski</h2>
+          <div class="w-16 h-[1.5px] bg-gold-500 mx-auto mb-4"></div>
+          <p class="text-gray-500 text-sm sm:text-base font-sans font-light">
+            Specjalizuję się w ofertach z Warszawy i Mazowsza, Warmii i Mazur oraz innych atrakcyjnych lokalizacji inwestycyjnych w Polsce.
+          </p>
+        </div>
+
+        <!-- Symmetrical Areas Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          
+          <!-- Area Card 1 -->
+          <div class="bg-navy-800 hover:bg-navy-700 border-b-4 border-gold-500 p-8 text-white transition-premium shadow-lg group relative overflow-hidden flex flex-col h-full">
+            <div class="absolute right-0 bottom-0 translate-x-5 translate-y-5 opacity-[0.03] scale-150 text-white pointer-events-none">
+              <!-- Location Map Pin Graphic -->
+              <svg class="w-48 h-48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25s-7.5-4.108-7.5-11.25g3 3 0 1115 0z" />
+              </svg>
+            </div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="p-3 bg-navy-950/55 border border-gold-500/20 text-gold-500">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25s-7.5-4.108-7.5-11.25" />
+                </svg>
+              </div>
+              <span class="text-[10px] font-mono text-gold-500 uppercase tracking-widest font-semibold">Warszawa & Mazowsze</span>
+            </div>
+            <h4 class="font-serif text-xl font-semibold mb-2 text-white group-hover:text-gold-100 transition-colors">Warszawa i Mazowsze</h4>
+            <p class="text-xs font-sans text-gold-500 tracking-wide mb-4 font-light italic">Chomiczówka, Stasi Las, Zegrze i okolice</p>
+            <p class="text-gray-300 font-sans text-xs leading-relaxed font-light mt-auto">
+              Wyszukiwanie prestiżowych apartamentów miejskich, komfortowych domów jednorodzinnych wokół aglomeracji warszawskiej oraz willi nad Zalewem Zegrzyńskim.
+            </p>
+          </div>
+
+          <!-- Area Card 2 -->
+          <div class="bg-navy-800 hover:bg-navy-700 border-b-4 border-gold-500 p-8 text-white transition-premium shadow-lg group relative overflow-hidden flex flex-col h-full">
+            <div class="absolute right-0 bottom-0 translate-x-5 translate-y-5 opacity-[0.03] scale-150 text-white pointer-events-none">
+              <svg class="w-48 h-48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25s-7.5-4.108-7.5-11.25" />
+              </svg>
+            </div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="p-3 bg-navy-950/55 border border-gold-500/20 text-gold-500">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25s-7.5-4.108-7.5-11.25" />
+                </svg>
+              </div>
+              <span class="text-[10px] font-mono text-gold-500 uppercase tracking-widest font-semibold">Warmia & Mazury</span>
+            </div>
+            <h4 class="font-serif text-xl font-semibold mb-2 text-white group-hover:text-gold-100 transition-colors">Warmia i Mazury</h4>
+            <p class="text-xs font-sans text-gold-500 tracking-wide mb-4 font-light italic">Szczytno, Mazury — tereny nad jeziorami</p>
+            <p class="text-gray-300 font-sans text-xs leading-relaxed font-light mt-auto">
+              Unikalne grunty z linią brzegową, działki rekreacyjne, pensjonaty i tereny komercyjne dedykowane relaksowi i ekskluzywnym konceptom turystycznym.
+            </p>
+          </div>
+
+          <!-- Area Card 3 -->
+          <div class="bg-navy-800 hover:bg-navy-700 border-b-4 border-gold-500 p-8 text-white transition-premium shadow-lg group relative overflow-hidden flex flex-col h-full">
+            <div class="absolute right-0 bottom-0 translate-x-5 translate-y-5 opacity-[0.03] scale-150 text-white pointer-events-none">
+              <svg class="w-48 h-48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25s-7.5-4.108-7.5-11.25" />
+              </svg>
+            </div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="p-3 bg-navy-950/55 border border-gold-500/20 text-gold-500">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25s-7.5-4.108-7.5-11.25" />
+                </svg>
+              </div>
+              <span class="text-[10px] font-mono text-gold-500 uppercase tracking-widest font-semibold">Krajowy zasięg</span>
+            </div>
+            <h4 class="font-serif text-xl font-semibold mb-2 text-white group-hover:text-gold-100 transition-colors">Cała Polska</h4>
+            <p class="text-xs font-sans text-gold-500 tracking-wide mb-4 font-light italic">Oferty inwestycyjne w atrakcyjnych lokalizacjach</p>
+            <p class="text-gray-300 font-sans text-xs leading-relaxed font-light mt-auto">
+              Dostęp do gruntów inwestycyjnych pod hotele, deweloperkę mieszkaniową i parki logistyczne na terenie całego kraju na zamówienie indywidualne klientów.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Banner prompt -->
+        <div class="relative bg-navy-900 p-8 md:p-12 border border-gold-500/10 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 overflow-hidden text-center md:text-left">
+          <div class="absolute inset-0 luxury-diagonal opacity-15 pointer-events-none"></div>
+          <div class="absolute -left-16 top-1/2 -translate-y-1/2 w-48 h-48 bg-gold-500/5 blur-[50px] rounded-full pointer-events-none"></div>
+          
+          <div class="relative z-10 max-w-2xl">
+            <span class="text-[10px] font-sans font-bold text-gold-500 tracking-widest uppercase mb-2 block">Zapytanie Specjalne</span>
+            <h3 class="font-serif text-xl sm:text-3xl text-white mb-2 leading-relaxed">
+              Szukasz nieruchomości w konkretnej lokalizacji?<br>
+              <span class="font-light italic text-gold-100">Zapytaj mnie — mam dostęp do ofert z całego kraju.</span>
+            </h3>
+            <p class="font-sans text-xs text-white/50 font-light max-w-xl">
+              Dzięki szerokiej sieci kontaktów i współpracy międzyagencyjnej odnajduję rzadkie i poufne oferty pozarynkowe odpowiadające Twoim kryteriom.
+            </p>
+          </div>
+
+          <button onclick="triggerEmailInquiry('Ogólne zapytanie o grunt/nieruchomość', 'Dzień dobry,\n\nSzukam nieruchomości w określonej lokalizacji. Chciałbym/chciałabym omówić moje kryteria zakupowe.\n\nZ poważaniem,\n[Wpisz swoje imię]')" class="relative z-10 px-8 py-4 bg-gold-500 hover:bg-gold-700 text-navy-900 hover:text-white font-sans text-xs font-bold uppercase tracking-widest transition-premium shrink-0 shadow-lg">
+            Zapytaj o ofertę
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- 7. KONTAKT SECTION (Strict high-end custom designed underline layout - contact form removed per request!) -->
+    <section id="kontakt" class="py-24 bg-navy-900 text-white relative overflow-hidden">
+      <div class="absolute inset-0 luxury-grid opacity-30 pointer-events-none"></div>
+      <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-navy-950 to-transparent pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <!-- Header -->
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="inline-block text-xs uppercase font-sans font-bold tracking-widest text-gold-500 mb-3">KONTAKT</span>
+          <h2 class="font-serif text-3xl sm:text-5xl font-medium leading-tight text-white mb-4">Porozmawiajmy o Twojej nieruchomości</h2>
+          <div class="w-16 h-[1.5px] bg-gold-500 mb-4 mx-auto"></div>
+          <p class="text-white/70 font-sans text-sm sm:text-base font-light">
+            Bezpłatna konsultacja — bez zobowiązań. Napisz lub zadzwoń bezpośrednio.
+          </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto pb-6">
+          
+          <!-- Coordinates & Intro info -->
+          <div class="text-center mb-12">
+            <p class="text-white/80 font-sans text-sm sm:text-base leading-[1.8] font-light max-w-2xl mx-auto">
+              Niezależnie od tego, czy kupujesz swoje pierwsze mieszkanie, sprzedajesz dom czy szukasz terenu pod inwestycję — chętnie pomogę. Przeprowadzę Cię bezpiecznie przez całą procedurę i pomogę we wszelkich formalnościach prawnych oraz finansowych.
+            </p>
+            <div class="w-12 h-[2px] bg-gold-500 mx-auto mt-6"></div>
+          </div>
+
+          <!-- Interactive Symmetrical Contact Cards grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto mb-10">
+            
+            <!-- Email Coordinate Card -->
+            <a href="mailto:barbara.stefaniuk.nieruchomosci@gmail.com" class="flex items-center gap-4 p-5 sm:p-6 border border-gold-500/10 bg-navy-950/40 hover:bg-navy-950/80 hover:border-gold-500/40 transition-premium group">
+              <div class="w-12 h-12 bg-navy-900 border border-gold-500/30 flex items-center justify-center text-gold-500 shrink-0 transition-colors group-hover:bg-gold-500 group-hover:text-navy-950">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                </svg>
+              </div>
+              <div class="text-left">
+                <p class="text-[10px] uppercase tracking-wider text-gray-400 font-sans font-semibold">📧 wyślij e-mail</p>
+                <p class="text-sm sm:text-base font-medium text-white group-hover:text-gold-100 transition-colors break-all mt-0.5">
+                  barbara.stefaniuk.nieruchomosci@gmail.com
+                </p>
+              </div>
+            </a>
+
+            <!-- Phone Coordinate Card -->
+            <a href="tel:+48501234567" class="flex items-center gap-4 p-5 sm:p-6 border border-gold-500/10 bg-navy-950/40 hover:bg-navy-950/80 hover:border-gold-500/40 transition-premium group">
+              <div class="w-12 h-12 bg-navy-900 border border-gold-500/30 flex items-center justify-center text-gold-500 shrink-0 transition-colors group-hover:bg-gold-500 group-hover:text-navy-950">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-2.824-1.502-5.142-3.82-6.644-6.644l1.293-.97a1.125 1.125 0 00.417-1.173L6.763 3.07a1.125 1.125 0 00-1.091-.852H3.75A2.25 2.25 0 001.5 4.5v2.25z" />
+                </svg>
+              </div>
+              <div class="text-left">
+                <p class="text-[10px] uppercase tracking-wider text-gray-400 font-sans font-semibold">📱 Zadzwoń teraz</p>
+                <p class="text-sm sm:text-base font-medium text-white group-hover:text-gold-100 transition-colors font-sans mt-0.5">
+                  +48 501 234 567
+                </p>
+              </div>
+            </a>
+
+          </div>
+
+          <!-- Utility copy triggers -->
+          <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-xl mx-auto mb-12 px-4 relative">
+            <button onclick="copyToClipboard('barbara.stefaniuk.nieruchomosci@gmail.com', 'email-tooltip')" class="relative px-6 py-3.5 bg-transparent border border-gold-500/30 text-gold-500 hover:border-gold-500 hover:bg-gold-500/5 font-sans text-xs font-semibold uppercase tracking-widest transition-premium min-w-[220px] text-center">
+              Kopiuj adres e-mail
+              <span id="email-tooltip" class="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-gold-500 text-navy-950 text-[10px] font-sans font-bold uppercase tracking-wider opacity-0 pointer-events-none transition-opacity">Skopiowano!</span>
+            </button>
+            <button onclick="copyToClipboard('+48501234567', 'phone-tooltip')" class="relative px-6 py-3.5 bg-transparent border border-gold-500/30 text-gold-500 hover:border-gold-500 hover:bg-gold-500/5 font-sans text-xs font-semibold uppercase tracking-widest transition-premium min-w-[220px] text-center">
+              Kopiuj numer telefonu
+              <span id="phone-tooltip" class="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-gold-500 text-navy-950 text-[10px] font-sans font-bold uppercase tracking-wider opacity-0 pointer-events-none transition-opacity">Skopiowano!</span>
+            </button>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-center items-center gap-6 md:gap-12 text-xs sm:text-sm text-white/50">
+            <div class="flex items-center gap-2.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-gold-500"></span>
+              <span>Dostępność telefoniczna: Pn - So, 8:00 - 20:00</span>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-gold-500"></span>
+              <span>Pełna polisa ubezpieczenia OC agenta pośrednictwa</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 8. FOOTER -->
+    <footer id="footer" class="bg-navy-950 text-white border-t border-gold-500/10 py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row items-center justify-between gap-8 mb-12">
+          
+          <!-- Foot Monogram Brand -->
+          <div class="flex items-center gap-3.5">
+            <div class="w-10 h-10 rounded-full border-2 border-gold-500 bg-navy-900 flex items-center justify-center font-serif text-gold-500">
+              <span class="text-sm font-bold tracking-wider">BS</span>
+            </div>
+            <div class="flex flex-col text-left">
+              <span class="font-serif text-base font-semibold tracking-wide text-white">Barbara Stefaniuk</span>
+              <span class="font-sans text-[10px] uppercase tracking-widest text-gold-500 font-medium font-semibold">Nieruchomości</span>
+            </div>
+          </div>
+
+          <!-- Quick Navigation links in page context anchor style -->
+          <div class="flex flex-wrap justify-center gap-6 sm:gap-10 text-xs font-semibold uppercase tracking-wider text-white/60">
+            <a href="#home" class="hover:text-gold-500 transition-colors">Strona główna</a>
+            <a href="#o-mnie" class="hover:text-gold-500 transition-colors">O mnie</a>
+            <a href="#oferty" class="hover:text-gold-500 transition-colors">Oferty</a>
+            <a href="#obszar-dzialania" class="hover:text-gold-500 transition-colors">Obszar działania</a>
+            <a href="#kontakt" class="hover:text-gold-500 transition-colors">Kontakt</a>
+          </div>
+
+        </div>
+
+        <div class="w-full h-[1px] bg-gold-500/15 mb-8"></div>
+
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+          <p class="text-[11px] text-gray-500 font-sans font-light">
+            © 2026 Barbara Stefaniuk Nieruchomości. Wszelkie prawa zastrzeżone.
+          </p>
+          <p class="text-[10px] text-gray-500 font-sans font-light max-w-md md:text-right leading-relaxed select-none">
+            Strona informacyjna. Prezentowane oferty mają charakter informacyjny i nie stanowią oferty handlowej w rozumieniu Kodeksu Cywilnego.
+          </p>
+        </div>
+
+      </div>
+    </footer>
+
+
+    <!-- 9. PREMIUM DYNAMIC LIGHTBOX MODAL (Rendered and hidden on layout load) -->
+    <div id="offer-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 md:p-12 bg-navy-900/98 backdrop-blur-md overflow-y-auto hidden">
+      <!-- Close Trigger on overlay click -->
+      <div id="modal-overlay-dismiss" class="fixed inset-0 cursor-zoom-out"></div>
+      
+      <!-- Inside Screen Exit Trigger -->
+      <button onclick="closeModal()" class="fixed top-4 right-4 z-55 p-3 rounded-full bg-white/10 hover:bg-gold-500 hover:text-navy-950 text-white transition-premium shadow-2xl focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <!-- Modal Body -->
+      <div class="relative w-full max-w-6xl bg-white shadow-2xl overflow-hidden flex flex-col lg:flex-row my-auto max-h-[90vh] lg:max-h-[85vh]">
+        <!-- Left: Image frame -->
+        <div class="relative w-full lg:w-1/2 h-[260px] sm:h-[350px] lg:h-auto bg-navy-950 flex-shrink-0">
+          <img id="modal-image" src="" alt="Nieruchomość" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent lg:hidden"></div>
+          
+          <div class="absolute top-6 left-6 z-10 flex flex-col gap-2">
+            <span id="modal-badge-tag" class="inline-block px-4 py-1.5 text-xs font-sans font-bold tracking-widest text-navy-900 bg-gold-500 uppercase">PREMIUM</span>
+            <span id="modal-badge-category" class="inline-block px-3 py-1 text-[11px] font-sans font-medium tracking-wide text-white bg-navy-900/80 backdrop-blur-sm self-start">Kategoria</span>
+          </div>
+
+          <div class="absolute bottom-6 left-6 hidden lg:block text-white">
+            <p class="font-serif italic text-lg text-gold-100 mb-1">Barbara Stefaniuk</p>
+            <p class="text-[11px] uppercase tracking-widest text-white/60">Ekskluzywne Doradztwo Nieruchomości</p>
+          </div>
+        </div>
+
+        <!-- Right: Specs scrollable body -->
+        <div class="w-full lg:w-1/2 p-6 sm:p-8 lg:p-12 overflow-y-auto flex flex-col h-full bg-white">
+          <div class="flex items-center justify-between border-b border-gray-100 pb-4 mb-6">
+            <div class="flex items-center gap-1.5 text-xs text-gold-500 tracking-wider font-semibold uppercase">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581a1.125 1.125 0 001.59 0l4.317-4.317a1.125 1.125 0 000-1.59L9.568 3.659A1.125 1.125 0 009.568 13.13" />
+              </svg>
+              <span id="modal-top-label">MIESZKANIE</span>
+            </div>
+            <span id="modal-date-label" class="text-xs text-gray-400 font-sans">Nowa oferta</span>
+          </div>
+
+          <h2 id="modal-title" class="font-serif text-2xl sm:text-3xl font-semibold text-navy-900 mb-4 leading-tight">Mieszkanie 3-pokojowe po remoncie — Warszawa Chomiczówka</h2>
+
+          <div class="flex items-start gap-2 text-gray-600 mb-6 font-sans">
+            <svg class="w-4 h-4 text-gold-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25s-7.5-4.108-7.5-11.25" />
+            </svg>
+            <div>
+              <p id="modal-location" class="text-sm font-medium text-navy-900">Warszawa, Chomiczówka (woj. mazowieckie)</p>
+              <p class="text-xs text-gray-400">Oferta prowadzona przez licencjonowanego pośrednika</p>
+            </div>
+          </div>
+
+          <!-- Feature parameters table -->
+          <div id="modal-features-box" class="bg-cream p-5 mb-8 border-l-2 border-gold-500 grid grid-cols-2 gap-4">
+            <!-- Dynamically populated -->
+          </div>
+
+          <h4 class="font-serif text-lg font-semibold text-navy-900 mb-3 border-b border-gray-100 pb-2 flex items-center gap-2">
+            Szczegółowy opis nieruchomości
+          </h4>
+
+          <div id="modal-full-desc" class="text-gray-600 text-sm leading-relaxed space-y-4 mb-8 font-sans font-light">
+            <!-- Dynamically populated paragraph split -->
+          </div>
+
+          <!-- Core benefits list -->
+          <div class="bg-gray-50 p-6 rounded-none mb-8 border border-gray-150">
+            <h5 class="font-sans font-semibold text-xs text-navy-900 uppercase tracking-widest mb-4">Atuty Transakcji z naszą agencją</h5>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-gray-600 font-sans">
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-gold-500 shrink-0" fill="none" stroke="currentColor" stroke-width="2.1" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                <span>Wysoki poziom bezpieczeństwa</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-gold-500 shrink-0" fill="none" stroke="currentColor" stroke-width="2.1" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                <span>Szerokie wsparcie prawne</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-gold-500 shrink-0" fill="none" stroke="currentColor" stroke-width="2.1" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                <span>Zweryfikowany stan ksiąg wieczystych</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-gold-500 shrink-0" fill="none" stroke="currentColor" stroke-width="2.1" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                <span>Pomoc w procesie kredytowania</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Action box in bottom row -->
+          <div class="mt-auto pt-6 border-t border-gray-100">
+            <button id="modal-cta-btn" onclick="triggerPropertyConsultation()" class="w-full text-center py-4 bg-gold-500 hover:bg-gold-700 text-navy-900 hover:text-white font-sans text-xs font-bold uppercase tracking-widest transition-premium">
+              Skontaktuj się w sprawie tej oferty
+            </button>
+            <p class="text-center text-[11px] text-gray-400 mt-3 font-sans font-light">
+              Kliknięcie przekieruje Cię bezpośrednio do programu pocztowego z gotowym zapytaniem.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script>
+      // Offers local data store exactly matching prompt details
+      const OFFERS_DATA = [
+        {
+          id: 'mieszkanie-chomiczowka',
+          category: 'mieszkanie',
+          categoryLabel: 'MIESZKANIE',
+          tag: 'NOWOŚĆ',
+          image: 'https://i.ibb.co/zWR58Q5w/655956716-122100479780949442-4520250554536345060-n.jpg',
+          title: 'Mieszkanie 3-pokojowe po remoncie — Chomiczówka, Warszawa',
+          shortDescription: 'W pełni wyposażone mieszkanie po remoncie z nowoczesnymi instalacjami. Idealne dla rodziny lub jako inwestycja z potencjałem wynajmu 5 000 PLN/mies.',
+          fullDescription: 'Zapraszam do zapoznania się z ofertą wyjątkowego, 3-pokojowego mieszkania zlokalizowanego na warszawskiej Chomiczówce. Lokal przeszedł generalny remont obejmujący wymianę instalacji elektrycznej oraz hydraulicznej, wyrównanie tynków oraz montaż nowej stolarki drzwiowej. \n\nMieszkanie zostało wykończone z dbałością o każdy szczegół, z użyciem materiałów najwyższej jakości. Kuchnia została w pełni wyposażona w nowoczesny sprzęt AGD w zabudowie meblowej robionej na zamówienie. Przestronny salon zapewnia komfortowy odpoczynek, a dwie oddzielne sypialnie idealnie sprawdzą się jako pokoje dziecięce lub gabinet do pracy zdalnej. \n\nLokalizacja zapewnia doskonałą komunikację z każdą częścią Warszawy – w pobliżu przystanki autobusowe i tramwajowe oraz dogodny dojazd do stacji Metro Młociny. Okolica charakteryzuje się bogatą infrastrukturą handlowo-usługową, bliskością szkół, przedszkoli oraz urokliwych terenów rekreacyjnych i parków.',
+          pills: ['3 pokoje', 'Po remoncie', 'Metro Młociny', 'Wyposażone'],
+          price: 'Zapytaj o cenę',
+          location: 'Warszawa, Chomiczówka (woj. mazowieckie)',
+          features: [
+            { label: 'Metraż', value: '58 m²' },
+            { label: 'Liczba pokoi', value: '3 pokoje' },
+            { label: 'Piętro', value: '3 z 10 (z windą)' },
+            { label: 'Stan', value: 'Po remoncie generalnym' },
+            { label: 'Czynsz', value: '720 PLN' },
+            { label: 'Własność', value: 'Własność z KW' }
+          ],
+          dateLabel: 'Nowa oferta'
+        },
+        {
+          id: 'dzialka-szczytno',
+          category: 'dzialka',
+          categoryLabel: 'DZIAŁKA INWESTYCYJNA',
+          tag: 'PREMIUM',
+          image: 'https://i.ibb.co/Xx0wNFB6/656794178-122099652500949442-7744523306428760816-n.jpg',
+          title: 'Teren inwestycyjny 7,12 ha nad jeziorem — Szczytno, Warmia i Mazury',
+          shortDescription: '71 248 m² nad jeziorem Domowym Dużym. Bezpośrednia linia brzegowa, MPZP (U/UT/US), dostęp do mediów. Scenariusze: hotel, resort, domki inwestycyjne. 3 km do centrum.',
+          fullDescription: 'Wyjątkowy teren inwestycyjny o łącznej powierzchni 7,12 ha (71 248 m²), malowniczo usytuowany bezpośrednio nad jeziorem Domowym Dużym w Szczytnie, na Warmii i Mazurach. To jedna z nielicznych tak spektakularnych nieruchomości z bezpośrednią linią brzegową – gwarantująca najwyższy prestiż i unikalność inwestycji.\n\nDla oferowanego obszaru obowiązuje Miejscowy Plan Zagospodarowania Przestrzennego (MPZP) oznaczony symbolami U/UT/US, który zezwala na realizację usług turystycznych, rekreacyjnych, obiektów hotelowych, usług sportowych, a także ekskluzywnych osiedli domków inwestycyjnych czy rezydencjonalnych.\n\nTeren posiada pełny dostęp do niezbędnych mediów (prąd, woda, kanalizacja, gaz w drodze). Doskonały dojazd drogami asfaltowymi oraz zaledwie 3-kilometrowa odległość do urokliwego centrum Szczytna czynią to miejsce idealnym na budowę luksusowego hotelu, resortu SPA lub prestiżowej osady wakacyjnej o wysokiej stopie zwrotu (ROI).',
+          pills: ['7,12 ha', 'Nad jeziorem', 'MPZP', 'Warmia i Mazury', 'ROI'],
+          price: 'Cena na zapytanie',
+          location: 'Szczytno, woj. warmińsko-mazurskie',
+          features: [
+            { label: 'Powierzchnia', value: '71 248 m² (7,12 ha)' },
+            { label: 'Długość brzegu', value: 'ok. 320 metrów' },
+            { label: 'Przeznaczenie', value: 'Usługi turystyczne / hotelarstwo (U/UT/US)' },
+            { label: 'Infrastruktura', value: 'Dojazd asfaltowy, media przy granicy' },
+            { label: 'Ukształtowanie', value: 'Lekko faliste' },
+            { label: 'Odległość', value: '3 km do centrum, 15 km do lotniska' }
+          ],
+          dateLabel: 'Oferta Premium'
+        },
+        {
+          id: 'dom-stasi-las',
+          category: 'dom',
+          categoryLabel: 'DOM',
+          tag: 'POLECANE',
+          image: 'https://i.ibb.co/G4G7jPgT/655802110-122099648582949442-7169247095601942994-n.jpg',
+          title: 'Dom wolnostojący 207 m² z basenem — Stasi Las, Zalew Zegrzyński',
+          shortDescription: 'Nowoczesny dom z 2017 roku — 5 pokoi, przestronny salon z wyjściem na taras, własny basen, ogród 800 m². Szybki dojazd do Warszawy.',
+          fullDescription: 'Przedstawiamy Państwu luksusowy, wolnostojący dom o powierzchni użytkowej 207 m², zlokalizowany w malowniczej i spokojnej miejscowości Stasi Las, tuż obok Zalewu Zegrzyńskiego (gmina Serock). Dom został wybudowany w 2017 roku przy użyciu zaawansowanych technologicznie i ekologicznych materiałów konstrukcyjnych.\n\nSercem domu jest imponujący, świetnie doświetlony salon połączony z jadalnią oraz w pełni wyposażoną, luksusową kuchnią z wyspą kuchenną. Bezpośrednie wyjście z salonu prowadzi na przestronny, zadaszony taras oraz znakomicie utrzymany ogród o powierzchni 800 m², na którym znajduje się wbudowany basen z nowoczesnym systemem filtracji i podgrzewania wody.\n\nNa piętrze zlokalizowano strefę prywatną: trzy duże, klimatyzowane sypialnie (w tym master bedroom z własną garderobą i pokojem kąpielowym) oraz dodatkową łazienkę. Nad bezpieczeństwem mieszkańców czuwa nowoczesny monitoring oraz instalacja alarmowa. Garaż dwustanowiskowy w bryle budynku stanowi dodatkowy atut.',
+          pills: ['207 m²', '5 pokoi', 'Basen', 'Ogród 800m²', 'Rok 2017'],
+          price: 'Zapytaj o cenę',
+          location: 'Stasi Las, gmina Serock (woj. mazowieckie)',
+          features: [
+            { label: 'Powierzchnia', value: '207 m²' },
+            { label: 'Działka', value: '800 m²' },
+            { label: 'Pokoje', value: '5 (w tym 4 sypialnie)' },
+            { label: 'Rok budowy', value: '2017 r.' },
+            { label: 'Garaż', value: 'Dwustanowiskowy' },
+            { label: 'Udogodnienia', value: 'Basen, rekuperacja, pompa ciepła' }
+          ],
+          dateLabel: 'Oferta Polecana'
+        }
+      ];
+
+      let currentlyOpenOffer = null;
+
+      // 1. Mobile Menu Toggling Controls
+      const mobileNavToggleBtn = document.getElementById('mobile-menu-toggle');
+      const mobileMenuOverlay = document.getElementById('mobile-menu');
+      const hamburgerIconEl = document.getElementById('hamburger-icon');
+      const closeIconEl = document.getElementById('close-icon');
+
+      mobileNavToggleBtn.addEventListener('click', () => {
+        const isOpen = !mobileMenuOverlay.classList.contains('translate-x-full');
+        if (isOpen) {
+          mobileMenuOverlay.classList.add('translate-x-full');
+          hamburgerIconEl.classList.remove('hidden');
+          closeIconEl.classList.add('hidden');
+        } else {
+          mobileMenuOverlay.classList.remove('translate-x-full');
+          hamburgerIconEl.classList.add('hidden');
+          closeIconEl.classList.remove('hidden');
+        }
+      });
+
+      // Close mobile overlay on simple anchor clicks
+      document.querySelectorAll('.mobile-menu-link').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenuOverlay.classList.add('translate-x-full');
+          hamburgerIconEl.classList.remove('hidden');
+          closeIconEl.classList.add('hidden');
+        });
+      });
+
+
+      // 2. Navigation bar sticky transition background
+      const navStickyElement = document.getElementById('navbar-sticky');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 40) {
+          navStickyElement.classList.remove('py-5');
+          navStickyElement.classList.add('py-3.5', 'shadow-2xl', 'bg-navy-950');
+        } else {
+          navStickyElement.classList.remove('py-3.5', 'shadow-2xl', 'bg-navy-950');
+          navStickyElement.classList.add('py-5');
+        }
+      });
+
+
+      // 3. Category filtering mechanism for client ease
+      function filterOffers(category) {
+        // Toggle active button background visual states
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+          btn.className = "filter-btn px-6 py-2.5 font-sans font-semibold text-xs uppercase tracking-wider border text-navy-900 border-navy-800/10 bg-white transition-premium";
+        });
+
+        const activeBtn = document.getElementById(`filter-${category === 'wszystkie' ? 'all' : category}`);
+        if(activeBtn) {
+          activeBtn.className = "filter-btn px-6 py-2.5 font-sans font-semibold text-xs uppercase tracking-wider border text-navy-900 bg-gold-500 border-gold-500 transition-premium";
+        }
+
+        // Filter the elements inside DOM with scale exit animations
+        document.querySelectorAll('.offer-card').forEach(card => {
+          const cardCategory = card.getAttribute('data-category');
+          if (category === 'wszystkie' || cardCategory === category) {
+            card.style.display = "flex";
+            setTimeout(() => {
+              card.style.opacity = "1";
+              card.style.transform = "scale(1)";
+            }, 50);
+          } else {
+            card.style.opacity = "0";
+            card.style.transform = "scale(0.96)";
+            setTimeout(() => {
+              card.style.display = "none";
+            }, 300);
+          }
+        });
+      }
+
+
+      // 4. Clipboard copying coordination triggers with zero alert popups
+      function copyToClipboard(text, tooltipId) {
+        navigator.clipboard.writeText(text).then(() => {
+          const tooltip = document.getElementById(tooltipId);
+          if (tooltip) {
+            tooltip.classList.remove('opacity-0', 'pointer-events-none');
+            tooltip.classList.add('opacity-100');
+            setTimeout(() => {
+              tooltip.classList.remove('opacity-100');
+              tooltip.classList.add('opacity-0', 'pointer-events-none');
+            }, 2000);
+          }
+        });
+      }
+
+
+      // 5. Dynamic Modal Lightbox functions
+      const offerModalEl = document.getElementById('offer-modal');
+      const dismissOverlayEl = document.getElementById('modal-overlay-dismiss');
+
+      function openModal(index) {
+        const offer = OFFERS_DATA[index];
+        currentlyOpenOffer = offer;
+
+        // Populate elements
+        document.getElementById('modal-image').src = offer.image;
+        document.getElementById('modal-image').alt = offer.title;
+        document.getElementById('modal-badge-tag').textContent = offer.tag;
+        document.getElementById('modal-badge-category').textContent = offer.categoryLabel;
+        document.getElementById('modal-top-label').textContent = offer.categoryLabel;
+        document.getElementById('modal-date-label').textContent = offer.dateLabel;
+        document.getElementById('modal-title').textContent = offer.title;
+        document.getElementById('modal-location').textContent = offer.location;
+
+        // Features Grid population
+        const featuresContainer = document.getElementById('modal-features-box');
+        featuresContainer.innerHTML = '';
+        offer.features.forEach(feat => {
+          const wrapper = document.createElement('div');
+          wrapper.className = "flex flex-col";
+          wrapper.innerHTML = `
+            <span class="text-[10px] uppercase text-gray-400 tracking-wider font-sans font-semibold">${feat.label}</span>
+            <span class="text-xs sm:text-sm font-medium text-navy-900 font-sans">${feat.value}</span>
+          `;
+          featuresContainer.appendChild(wrapper);
+        });
+
+        // Full Description split mapping
+        const descContainer = document.getElementById('modal-full-desc');
+        descContainer.innerHTML = '';
+        offer.fullDescription.split('\n\n').forEach(par => {
+          const p = document.createElement('p');
+          p.textContent = par;
+          descContainer.appendChild(p);
+        });
+
+        // Open layout display and prevent body layout scrolling
+        offerModalEl.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        offerModalEl.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+        currentlyOpenOffer = null;
+      }
+
+      dismissOverlayEl.addEventListener('click', closeModal);
+
+      // Handle Escape keypad triggers
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeModal();
+        }
+      });
+
+
+      // 6. Direct Property or general email client triggering
+      function triggerPropertyConsultation() {
+        if (!currentlyOpenOffer) return;
+        triggerEmailInquiry(
+          `Zapytanie o ofertę: ${currentlyOpenOffer.title}`,
+          `Dzień dobry,\n\nPiszę z zapytaniem w sprawie oferty: "${currentlyOpenOffer.title}". Proszę o kontakt telefoniczny lub mailowy w celu przedstawienia szczegółów.\n\nZ poważaniem,\n[Imię i Nazwisko]\n[Numer telefonu]`
+        );
+        closeModal();
+      }
+
+      function triggerEmailInquiry(subject, bodyText) {
+        const safeSubject = encodeURIComponent(subject);
+        const safeBody = encodeURIComponent(bodyText);
+        window.location.href = `mailto:barbara.stefaniuk.nieruchomosci@gmail.com?subject=${safeSubject}&body=${safeBody}`;
+      }
+    </script>
   </body>
 </html>
-
