@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --color-gold-500: #C9A84C;
+  --color-gold-100: #E2C97E;
+  --color-gold-700: #A07830;
+  --color-navy-950: #0A1628;
+  --color-navy-900: #0D1F3C;
+  --color-navy-800: #1A3460;
+  --color-navy-700: #2A4A7F;
+  --color-navy-600: #3D5F9E;
+  --color-cream: #F8F7F4;
+  --color-darktext: #1A1A2E;
+  --color-graytext: #4A5568;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-darktext);
+  background-color: #FFFFFF;
+}
+
+/* Custom premium elements */
+.luxury-grid {
+  background-image: 
+    radial-gradient(ellipse at 50% 50%, rgba(201, 168, 76, 0.04) 0%, transparent 85%),
+    linear-gradient(rgba(201, 168, 76, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 168, 76, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 48px 48px, 48px 48px;
+}
+
+.luxury-diagonal {
+  background-image: repeating-linear-gradient(45deg, rgba(201, 168, 76, 0.02) 0px, rgba(201, 168, 76, 0.02) 2px, transparent 2px, transparent 12px);
+}
+
+/* Beautiful custom cursor and inputs styles */
+input:focus, select:focus, textarea:focus {
+  outline: none;
+}
+
+/* Fade in animation styles for initial page load */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+

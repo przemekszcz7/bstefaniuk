@@ -1,0 +1,6 @@
+{
+  "name": "Barbara Stefaniuk Nieruchomości",
+  "description": "Prestiżowa wizytówka i system ofert biura nieruchomości Barbary Stefaniuk. Klasyczna elegancja połączona z nowoczesnością.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
